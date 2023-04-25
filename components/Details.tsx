@@ -1,14 +1,25 @@
 import { Image, StyleSheet, Text, View } from "react-native";
+import flower from "../flowers_description.json";
 
 const Details = ({ navigation, route }) => {
+  let description;
+
+  for (let flowerKey in flower) {
+    if (flowerKey === route.params.name) {
+      description = flower[flowerKey.toString()];
+    }
+  }
+
   return (
     <>
-      <View style={styles.header}>
-        <Text style={styles.title}>{route.params.name}</Text>
-        <Image style={styles.image} source={require("./flower.jpeg")} />
-      </View>
-      <View>
-        <Text style={styles.description}> about the flower</Text>
+      <View style={styles.body}>
+        <View style={styles.header}>
+          <Text style={styles.title}>{route.params.name}</Text>
+          <Image style={styles.image} source={require("./flower.jpeg")} />
+        </View>
+        <View>
+          <Text style={styles.description}> {description} </Text>
+        </View>
       </View>
     </>
   );
@@ -17,26 +28,31 @@ const Details = ({ navigation, route }) => {
 export default Details;
 
 const styles = StyleSheet.create({
-  header: {
-    display: "flex",
-    flexWrap: "wrap",
-    flexDirection: "row",
-    position: "absolute",
+  body: {
+    backgroundColor: "#e2fddd",
+    height: "100%",
   },
+  header: {},
   title: {
-    fontSize: 40,
+    fontSize: 35,
     padding: 20,
     fontFamily: "sans-serif",
     fontWeight: "bold",
+    marginRight: "auto",
+    marginLeft: "auto",
+    textTransform: "uppercase",
   },
   image: {
-    position: "relative",
-    left: 80,
+    marginRight: "auto",
+    marginLeft: "auto",
+    marginBottom: 30,
+    width: "50%",
   },
   description: {
-    position: "relative",
-    top: 150,
-    margin: 20,
-    fontSize: 18,
+    marginRight: "auto",
+    marginLeft: "auto",
+    width: "80%",
+    fontSize: 20,
+    textAlign: "justify",
   },
 });

@@ -18,27 +18,27 @@ type ItemData = {
 const DATA: ItemData[] = [
   {
     id: "1",
-    title: "Rose",
+    title: "king protea",
   },
   {
     id: "2",
-    title: "Lily",
+    title: "purple coneflower",
   },
   {
     id: "3",
-    title: "Tulip",
+    title: "stemless gentian",
   },
   {
     id: "4",
-    title: "Orchid",
+    title: "garden phlox",
   },
   {
     id: "5",
-    title: "Hyacinth",
+    title: "daffodil",
   },
   {
     id: "6",
-    title: "Chrysanthemum",
+    title: "primula",
   },
 ];
 
@@ -68,7 +68,7 @@ const Home = ({ navigation }) => {
   const [selectedId, setSelectedId] = useState<string>();
 
   const renderItem = ({ item }: { item: ItemData }) => {
-    const backgroundColor = item.id === selectedId ? "#1b6b14" : "#caffc2";
+    let backgroundColor = item.id === selectedId ? "#1b6b14" : "#caffc2";
     const color = item.id === selectedId ? "white" : "black";
 
     return (
@@ -120,5 +120,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
+    textTransform: "capitalize",
   },
 });

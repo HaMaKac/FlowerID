@@ -1,36 +1,27 @@
-# SmartGroceryApp
+# FlowerID
 
-# Smart Grocery List
-Smart Grocery List is a mobile app that uses computer vision to simplify the grocery shopping experience for users. The app scans grocery receipts and automatically adds items to a shopping list, categorizes them, and suggests recipes based on the ingredients.
+## Hackathon Development
+We created FlowerID as part of the Developer Week Europe 2023 hackathon. The hackathon provided us with a platform to showcase our skills in mobile app development, deep learning, and web scraping. Working on this project within the context of a hackathon was an exciting experience. The time constraints and intense competition pushed us to work harder and more efficiently than we would have otherwise. We're excited to continue building on this project in the future.
 
-# Features
-Receipt scanning: Users can take a picture of their grocery receipt using the app, and the app will scan the receipt and automatically add items to a shopping list.
-Categorization: The app categorizes items (e.g., produce, dairy, meats, etc.) to make shopping more efficient.
-Recipe suggestions: The app uses machine learning algorithms to suggest recipes based on the ingredients on the shopping list.
-Customization: Users can customize the shopping list by adding or removing items, and can mark off items as they're purchased.
+## Inspiration
+Our team decided to create a mobile app called "FlowerID" that utilizes deep learning to identify different types of flowers. We were inspired by the beauty of nature and the desire to learn about the different types of flowers that exist in the world.
 
-# Installation
-To install the app, follow these steps:
+## How we built it
+We used React Native to develop the app for Android devices, TensorFlow and PyTorch for the computer vision models, and Selenium and Beautiful Soup for web scraping flower descriptions. Our team trained two AI models: one to detect the presence of a flower in a photo and another to identify the type of flower. The app is capable of recognizing 102 different types of flowers, as the model was trained on the Oxford Flowers 102 dataset.
 
-Clone the repository to your local machine.
-Install the required dependencies using npm install.
-Start the app using npm start.
+Although we encountered some challenges along the way, such as optimizing the models for mobile devices and integrating them into the app, we ultimately succeeded in creating a functional and user-friendly app that can help people learn more about the flowers around them.
 
-# Usage
-To use the app, follow these steps:
+`python`
+`javascript`
+`selenium`
+`beautiful-soup`
+`tensorflow`
+`react-native`
 
-Open the app on your mobile device.
-Take a picture of your grocery receipt using the app.
-Wait for the app to scan the receipt and add items to the shopping list.
-Review the shopping list and make any necessary changes.
-Check out the recipe suggestions based on the ingredients in the shopping list.
-# Go shopping and mark off items on the list as they're purchased.
-Contributing
-We welcome contributions to the Smart Grocery List project! To contribute, please follow these steps:
+## What We Learned
+One of the biggest takeaways from this project was learning how to develop a mobile app using React Native. We also gained valuable experience working with deep learning frameworks like TensorFlow and PyTorch, as well as web scraping tools like Selenium and Beautiful Soup. Additionally, we learned about the importance of optimizing models for mobile devices, as they have limited resources compared to desktop computers.
 
-Fork the repository to your own GitHub account.
-Create a new branch for your changes.
-Make your changes and test them thoroughly.
-Submit a pull request to merge your changes back into the main branch.
-# License
-Smart Grocery List is released under the MIT License.
+## Challenges We Faced
+One of the biggest challenges we faced was integrating the AI models into the app in a way that optimized their performance on mobile devices. We also had some difficulty with training the models due to the large size of the Oxford Flowers 102 dataset. Finally, we didn't have enough time to implement the ability to take photos directly from the app, which meant users have to select a pre-existing photo from their gallery to identify the flower.
+
+Overall, we're proud of what we've accomplished with FlowerID and we're excited to continue developing our skills in deep learning and mobile app development.

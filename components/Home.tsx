@@ -7,8 +7,13 @@ import {
   Text,
   TouchableOpacity,
   Image,
+  View,
+  TextInput,
 } from "react-native";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { baseUrl, getFlowers, updateFlower } from "../redux/actions";
+import axios from "axios";
 
 type ItemData = {
   id: string;
@@ -84,8 +89,41 @@ const Home = ({ navigation }) => {
     );
   };
 
+  const dispatch = useDispatch();
+
+  const flower = useSelector((state: any) => state.flower);
+
+  const [newFlower, setNewFlower] = useState("");
+
+  const saveFlower = () => {
+    if (newFlower === "") return;
+    dispatch(updateFlower(newFlower));
+    console.log("get");
+    getFlowers().then((r) => {});
+  };
+
   return (
     <>
+      <View style={{ marginTop: 40 }}>
+        <TextInput
+          style={{
+            height: 40,
+            borderColor: "white",
+            borderWidth: 1,
+            borderRadius: 12,
+            padding: 8,
+            color: "white",
+          }}
+          onChangeText={(text) => setNewFlower(text)}
+          value={newFlower}
+          placeholder="New Username"
+          placeholderTextColor="white"
+        />
+        <Button title="Save" onPress={() => saveFlower()} />
+      </View>
+      <SafeAreaView>
+        <Text>Welcome {flower.flower}!</Text>
+      </SafeAreaView>
       <SafeAreaView style={styles.container}>
         <FlatList
           data={DATA}

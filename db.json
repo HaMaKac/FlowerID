@@ -1,0 +1,28 @@
+{
+  "flowers": [
+    {
+      "id": 1,
+      "name": "pink primrose"
+    },
+    {
+      "id": 2,
+      "name": "pink primrose"
+    },
+    {
+      "id": 3,
+      "name": "sweet pea"
+    },
+    {
+      "id": 4,
+      "name": "bird of paradise"
+    },
+    {
+      "id": 5,
+      "name": "corn poppy"
+    },
+    {
+      "id": 6,
+      "name": "garden phlox"
+    }
+  ]
+}

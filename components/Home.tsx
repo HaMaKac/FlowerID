@@ -6,41 +6,14 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  Image,
 } from "react-native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getFlowers } from "../redux/actions";
 
 type ItemData = {
   id: string;
-  title: string;
+  name: string;
 };
-
-const DATA: ItemData[] = [
-  {
-    id: "1",
-    title: "king protea",
-  },
-  {
-    id: "2",
-    title: "purple coneflower",
-  },
-  {
-    id: "3",
-    title: "stemless gentian",
-  },
-  {
-    id: "4",
-    title: "garden phlox",
-  },
-  {
-    id: "5",
-    title: "daffodil",
-  },
-  {
-    id: "6",
-    title: "primula",
-  },
-];
 
 type ItemProps = {
   item: ItemData;
@@ -55,28 +28,24 @@ const Item = ({ item, onPress, backgroundColor, textColor }: ItemProps) => (
       onPress={onPress}
       style={[styles.item, { backgroundColor }]}
     >
-      <Image
-        style={{ height: 50, width: 60, marginRight: 20 }}
-        source={require("./flower.jpeg")}
-      />
-      <Text style={[styles.title, { color: textColor }]}>{item.title}</Text>
+      <Text style={[styles.title, { color: textColor }]}>{item.name}</Text>
     </TouchableOpacity>
   </>
 );
 
 const Home = ({ navigation }) => {
-  const [selectedId, setSelectedId] = useState<string>();
+  let [selectedId, setSelectedId] = useState<string>();
 
   const renderItem = ({ item }: { item: ItemData }) => {
-    let backgroundColor = item.id === selectedId ? "#1b6b14" : "#caffc2";
-    const color = item.id === selectedId ? "white" : "black";
+    let backgroundColor = "#caffc2";
+    const color = "black";
 
     return (
       <Item
         item={item}
         onPress={() => {
           setSelectedId(item.id);
-          navigation.navigate("Details", { name: item.title });
+          navigation.navigate("Details", { name: item.name });
         }}
         backgroundColor={backgroundColor}
         textColor={color}
@@ -84,11 +53,17 @@ const Home = ({ navigation }) => {
     );
   };
 
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    getFlowers().then((r) => setData(r));
+  });
+
   return (
     <>
       <SafeAreaView style={styles.container}>
         <FlatList
-          data={DATA}
+          data={data}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
           extraData={selectedId}

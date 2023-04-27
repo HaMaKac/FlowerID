@@ -15,7 +15,6 @@ const Details = ({ navigation, route }) => {
       <View style={styles.body}>
         <View style={styles.header}>
           <Text style={styles.title}>{route.params.name}</Text>
-          <Image style={styles.image} source={require("./flower.jpeg")} />
         </View>
         <View>
           <Text style={styles.description}> {description} </Text>
@@ -36,7 +35,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 35,
     padding: 20,
-    fontFamily: "sans-serif",
     fontWeight: "bold",
     marginRight: "auto",
     marginLeft: "auto",

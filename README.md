@@ -7,7 +7,7 @@ We created FlowerID as part of the Developer Week Europe 2023 hackathon. The hac
 Our team decided to create a mobile app called "FlowerID" that utilizes deep learning to identify different types of flowers. We were inspired by the beauty of nature and the desire to learn about the different types of flowers that exist in the world.
 
 ## How we built it
-We used React Native to develop the app for Android devices, TensorFlow and PyTorch for the computer vision models, and Selenium and Beautiful Soup for web scraping flower descriptions. Our team trained two AI models: one to detect the presence of a flower in a photo and another to identify the type of flower. The app is capable of recognizing 102 different types of flowers, as the model was trained on the Oxford Flowers 102 dataset.
+We used React Native to develop the app for Android devices, TensorFlow and PyTorch for the computer vision models, and Selenium and Beautiful Soup for web scraping flower descriptions. Our team trained two AI models: A YOLOV8 model that can recognize a flower in an image, which trained on custom dataset. And a MobileNetv2 model which is trained on Oxford102 Flowers Dataset. Hence, our app is capable of recognizing 102 different types of flowers.
 
 Although we encountered some challenges along the way, such as optimizing the models for mobile devices and integrating them into the app, we ultimately succeeded in creating a functional and user-friendly app that can help people learn more about the flowers around them.
 
